@@ -4,9 +4,9 @@ import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
 const steps = [
-  { step: '1', title: 'Discovery', desc: 'We start with understanding your business and project needs.' },
-  { step: '2', title: 'Design', desc: 'Our team creates sleek, user-focused designs that convert.' },
-  { step: '3', title: 'Development', desc: 'We build with modern frameworks like Next.js, Angular, and Spring Boot.' },
+  { step: '1', title: 'Discovery', desc: 'I start with understanding your business and project needs.' },
+  { step: '2', title: 'Design', desc: 'I create sleek, user-focused designs that convert.' },
+  { step: '3', title: 'Development', desc: 'I build with modern frameworks like Next.js, Angular, and Spring Boot.' },
   { step: '4', title: 'Launch & Growth', desc: 'Deploy, monitor, and scale with GCP, AWS, and SEO strategies.' },
 ]
 
@@ -34,7 +34,7 @@ export default function Process() {
     <section className='py-20 bg-background relative'>
       <div className='max-w-6xl mx-auto px-6 text-center'>
         <motion.h2 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className='text-4xl font-bold mb-12 text-foreground'>
-          Our Process
+          My Process
         </motion.h2>
 
         <div className='grid md:grid-cols-4 gap-8'>

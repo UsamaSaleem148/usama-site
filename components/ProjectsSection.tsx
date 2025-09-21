@@ -176,7 +176,7 @@ export default function ProjectSection() {
 
   return (
     <>
-      <section className='py-20 bg-background'>
+      <section id="projects" className='py-20 bg-background'>
         <div className='max-w-6xl mx-auto px-6 text-center'>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }} 
@@ -184,7 +184,7 @@ export default function ProjectSection() {
             transition={{ duration: 0.6 }} 
             className='text-4xl font-bold mb-12 text-foreground'
           >
-            Our Work
+            My Work
           </motion.h2>
           <div className='grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6'>
             {projects.map((project, index) => (

@@ -6,10 +6,10 @@ import { ThemeProvider } from '@/components/ThemeProvider'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'WebCraft Pro - Building the Future of Web, AI & Marketing',
-  description: 'From stunning design to AI-powered solutions, we create applications that scale with your vision. Specializing in frontend design, online marketing, and AI integrations.',
-  keywords: 'web design, web development, AI integration, online marketing, frontend development, custom web solutions',
-  authors: [{ name: 'WebCraft Pro Team' }],
+  title: 'Muhammad Usama Saleem - Software Engineer',
+  description: 'Full-stack software engineer specializing in web applications, mobile development, AI/ML solutions, and cloud deployments. Building scalable, real-world applications.',
+  keywords: 'software engineer, full-stack developer, web development, mobile development, AI/ML, cloud deployment, React, Node.js, Python',
+  authors: [{ name: 'Muhammad Usama Saleem' }],
 }
 
 export const viewport: Viewport = {

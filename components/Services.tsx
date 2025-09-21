@@ -1,53 +1,74 @@
 'use client'
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Code, Globe, Brain } from 'lucide-react'
+import { Code, Smartphone, Brain, Cloud, ShoppingCart, Layers, Cpu, Palette, Wrench, Server } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 const services = [
   {
     title: 'Web Application Development',
-    description: 'We build fast, scalable, and secure web applications tailored to your business. From frontend to backend, we deliver modern solutions using Next.js, Angular, and Spring Boot.',
+    description: 'Building modern, scalable, and responsive web apps using cutting-edge technologies like React, Next.js, Angular, and Spring Boot.',
     icon: <Code className='h-8 w-8 text-primary' />,
   },
   {
-    title: 'Digital Marketing',
-    description: 'Grow your online presence with our SEO, social media, and performance marketing strategies. We help you reach the right audience and maximize ROI.',
-    icon: <Globe className='h-8 w-8 text-green-400 dark:text-green-300' />,
+    title: 'Mobile Application Development',
+    description: 'Crafting seamless mobile experiences for iOS and Android using React Native, Flutter, and native development approaches.',
+    icon: <Smartphone className='h-8 w-8 text-green-400 dark:text-green-300' />,
   },
   {
-    title: 'AI-Powered Solutions',
-    description: 'We integrate AI into your business processes — from chatbots and automation to intelligent data-driven applications — helping you stay ahead of the curve.',
+    title: 'AI & Machine Learning Solutions',
+    description: 'Leveraging AI/ML to deliver data-driven insights and automation, from chatbots to predictive analytics and intelligent systems.',
     icon: <Brain className='h-8 w-8 text-pink-400 dark:text-pink-300' />,
+  },
+  {
+    title: 'Cloud Deployments & DevOps',
+    description: 'Deploying and scaling apps on GCP, AWS, and other cloud platforms with CI/CD pipelines and infrastructure as code.',
+    icon: <Cloud className='h-8 w-8 text-blue-400 dark:text-blue-300' />,
+  },
+  {
+    title: 'E-Commerce Solutions',
+    description: 'Designing and developing scalable e-commerce platforms with secure payments, inventory management, and personalized shopping experiences.',
+    icon: <ShoppingCart className='h-8 w-8 text-orange-400 dark:text-orange-300' />,
+  },
+  {
+    title: 'UI/UX Design & Prototyping',
+    description: 'Creating intuitive, user-centered interfaces and prototypes to enhance usability and customer engagement.',
+    icon: <Palette className='h-8 w-8 text-rose-400 dark:text-rose-300' />,
   },
 ]
 
 export default function ServicesSection() {
   return (
-    <section className='py-20 bg-background relative'>
-      <div className='max-w-6xl mx-auto px-6 text-center'>
-        <h2 className='text-4xl font-bold mb-4 text-foreground'>What We Do</h2>
-        <p className='text-lg text-foreground/70 mb-12'>We specialize in designing, developing, and scaling products that empower businesses with cutting-edge technology.</p>
-        <div className='grid gap-8 md:grid-cols-3'>
-          {services.map((service, index) => (
-            <motion.div key={index} whileHover={{ scale: 1.05 }} transition={{ type: 'spring', stiffness: 300 }} className='relative'>
-              {/* Grainy Noise Layer */}
-              <div className="absolute inset-0 rounded-2xl bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none z-0" />
+    <section id='services' className='py-20 bg-background relative overflow-hidden'>
+      <div className='max-w-7xl mx-auto px-6 relative z-10'>
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className='text-center mb-16'>
+          <h2 className='text-5xl font-bold mb-6 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent'>My Services</h2>
+          <p className='text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed'>I provide end-to-end software engineering solutions, helping clients turn ideas into scalable, real-world applications.</p>
+        </motion.div>
 
-              <Card
-                className='relative h-full rounded-2xl 
-                           border border-border-subtle 
-                           bg-background-subtle/60 
-                           backdrop-blur-xl shadow-glass 
-                           transition-all duration-300 
-                           hover:border-border-strong hover:shadow-2xl'
-              >
-                <CardHeader>
-                  <div className='flex justify-center mb-4'>{service.icon}</div>
-                  <CardTitle className='text-xl text-foreground'>{service.title}</CardTitle>
+        <div className='grid gap-8 md:grid-cols-2 lg:grid-cols-3'>
+          {services.map((service, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1, duration: 0.6 }}
+              // whileHover={{ y: -8, scale: 1.02 }}
+              className='group relative'
+            >
+              <Card className='relative h-full rounded-3xl border border-border/50 bg-card/80 backdrop-blur-sm shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden group-hover:border-primary/30'>
+                <CardHeader className='text-center pb-4'>
+                  <motion.div
+                    // whileHover={{ rotate: 360, scale: 1.1 }}
+                    transition={{ duration: 0.6 }}
+                    className='flex justify-center mb-6'
+                  >
+                    <div className='p-4 rounded-2xl bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300'>{service.icon}</div>
+                  </motion.div>
+                  <CardTitle className='text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300'>{service.title}</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className='text-foreground/70 text-sm'>{service.description}</p>
+                <CardContent className='pt-0'>
+                  <p className='text-muted-foreground leading-relaxed group-hover:text-foreground/80 transition-colors duration-300'>{service.description}</p>
                 </CardContent>
               </Card>
             </motion.div>

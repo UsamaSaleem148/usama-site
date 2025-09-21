@@ -23,21 +23,25 @@ export default function Hero() {
       </div>
 
       {/* Hero Content */}
-      <div className='mx-auto max-w-4xl text-center px-6 relative z-10'>
+      <div id="home" className='mx-auto max-w-4xl text-center px-6 relative z-10'>
         <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className='text-5xl md:text-6xl font-bold tracking-tight text-foreground'>
-          Build Better, Faster
+          Muhammad Usama Saleem
         </motion.h1>
 
+        <motion.h2 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.8 }} className='text-2xl md:text-3xl font-semibold text-primary mt-4'>
+          Software Engineer
+        </motion.h2>
+
         <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.8 }} className='mt-6 text-lg text-muted-foreground max-w-2xl mx-auto'>
-          Supercharge your workflow with modern tools, sleek design, and powerful integrations.
+          Full-stack software engineer specializing in web applications, mobile development, AI/ML solutions, and cloud deployments. Building scalable, real-world applications.
         </motion.p>
 
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.8 }} className='mt-10 flex justify-center gap-4'>
-          <a href='#signup' className='px-6 py-3 rounded-lg bg-primary text-primary-foreground text-base font-medium transition transform hover:shadow-lg'>
-            Start Building
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.8 }} className='mt-10 flex flex-col sm:flex-row justify-center gap-4'>
+          <a href='#contact' className='px-8 py-4 rounded-lg bg-primary text-primary-foreground text-lg font-medium transition transform hover:shadow-lg hover:scale-105'>
+            Work With Me
           </a>
-          <a href='#learn-more' className='px-6 py-3 rounded-lg border border-primary text-base font-medium text-foreground transition transform hover:bg-primary hover:text-primary-foreground'>
-            Explore Features
+          <a href='#projects' className='px-8 py-4 rounded-lg border border-primary text-lg font-medium text-foreground transition transform hover:bg-primary hover:text-primary-foreground hover:scale-105'>
+            View My Work
           </a>
         </motion.div>
       </div>
