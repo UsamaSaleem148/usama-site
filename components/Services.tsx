@@ -1,7 +1,7 @@
 'use client'
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Code, Smartphone, Brain, Cloud, ShoppingCart, Layers, Cpu, Palette, Wrench, Server } from 'lucide-react'
+import { Code, Smartphone, Brain, Cloud, ShoppingCart, Palette } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 const services = [
@@ -12,7 +12,7 @@ const services = [
   },
   {
     title: 'Mobile Application Development',
-    description: 'Crafting seamless mobile experiences for iOS and Android using React Native, Flutter, and native development approaches.',
+    description: 'Cross-platform mobile application development with React Native and Flutter, scalable APIs, and cloud integrations.',
     icon: <Smartphone className='h-8 w-8 text-green-400 dark:text-green-300' />,
   },
   {
