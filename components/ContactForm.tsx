@@ -25,26 +25,28 @@ export default function ContactForm() {
     })
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
 
+    const form = e.currentTarget
+    const formDataObj = new FormData(form)
+
     try {
-      const subject = `Contact from ${formData.name}`
-      const body = `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+      // Convert FormData → Record<string, string>
+      const entries = Array.from(formDataObj.entries()).map(([key, value]) => [key, String(value)])
+      const body = new URLSearchParams(entries).toString()
 
-      const mailtoLink = `mailto:usamasaleem0148@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-
-      if (typeof window !== 'undefined') {
-        window.location.href = mailtoLink
-      }
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body,
+      })
 
       setIsSubmitted(true)
       setFormData({ name: '', email: '', message: '' })
-
-      setTimeout(() => setIsSubmitted(false), 5000)
-    } catch (error) {
-      console.error('Error preparing email:', error)
+    } catch (err) {
+      console.error('Form submission error:', err)
     } finally {
       setIsSubmitting(false)
     }
@@ -61,7 +63,10 @@ export default function ContactForm() {
   }
 
   return (
-    <motion.form initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} onSubmit={handleSubmit} className='max-w-2xl mx-auto space-y-6'>
+    <motion.form name='contact' method='POST' data-netlify='true' netlify-honeypot='bot-field' onSubmit={handleSubmit} className='max-w-2xl mx-auto space-y-6'>
+      {/* Netlify needs this hidden input */}
+      <input type='hidden' name='form-name' value='contact' />
+      <input type='hidden' name='bot-field' />
       <div className='grid md:grid-cols-2 gap-6'>
         {/* Name */}
         <div className='space-y-2'>
