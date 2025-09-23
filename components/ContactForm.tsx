@@ -29,24 +29,22 @@ export default function ContactForm() {
     e.preventDefault()
     setIsSubmitting(true)
 
-    const form = e.currentTarget
-    const formDataObj = new FormData(form)
-
     try {
-      // Convert FormData → Record<string, string>
-      const entries = Array.from(formDataObj.entries()).map(([key, value]) => [key, String(value)])
-      const body = new URLSearchParams(entries).toString()
-
-      await fetch('/', {
+      const res = await fetch('/api/contact', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
       })
 
-      setIsSubmitted(true)
-      setFormData({ name: '', email: '', message: '' })
+      if (res.ok) {
+        setIsSubmitted(true)
+        setFormData({ name: '', email: '', message: '' })
+        setTimeout(() => setIsSubmitted(false), 5000)
+      } else {
+        console.error('Failed to send message')
+      }
     } catch (err) {
-      console.error('Form submission error:', err)
+      console.error('Error submitting form:', err)
     } finally {
       setIsSubmitting(false)
     }
@@ -63,10 +61,7 @@ export default function ContactForm() {
   }
 
   return (
-    <motion.form name='contact' method='POST' data-netlify='true' netlify-honeypot='bot-field' onSubmit={handleSubmit} className='max-w-2xl mx-auto space-y-6'>
-      {/* Netlify needs this hidden input */}
-      <input type='hidden' name='form-name' value='contact' />
-      <input type='hidden' name='bot-field' />
+    <motion.form name='contact' method='POST' onSubmit={handleSubmit} className='max-w-2xl mx-auto space-y-6'>
       <div className='grid md:grid-cols-2 gap-6'>
         {/* Name */}
         <div className='space-y-2'>
