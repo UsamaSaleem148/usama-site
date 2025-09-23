@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   description: 'Full-stack software engineer specializing in Next.js, Angular, Node.js, Java Spring Boot, cloud platforms (AWS, GCP, Azure), AI, and blockchain development.',
   keywords: 'software engineer, full-stack developer, web development, mobile development, AI/ML, cloud deployment, React, Node.js, Python, Angular, Java Spring Boot, AWS, GCP, Azure, blockchain, algorithms, data structures',
   authors: [{ name: 'Muhammad Usama Saleem' }],
+  metadataBase: new URL('https://usama.solutions'),
   openGraph: {
     title: 'Muhammad Usama Saleem | Full-Stack Software Engineer',
     description: 'Portfolio of Muhammad Usama Saleem, showcasing expertise in web, mobile, and blockchain development.',
@@ -50,7 +51,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               '@context': 'https://schema.org',
-              '@type': 'Person',
+              '@type': 'Website',
               name: 'Muhammad Usama Saleem',
               jobTitle: 'Full-Stack Software Engineer',
               url: 'https://usama.solutions',
