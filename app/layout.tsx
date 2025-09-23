@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://usama.solutions'),
   openGraph: {
     title: 'Muhammad Usama Saleem | Full-Stack Software Engineer',
-    description: 'Portfolio of Muhammad Usama Saleem, showcasing expertise in web, mobile, and blockchain development.',
+    description: 'Full-stack software engineer specializing in Next.js, Angular, Node.js, Java Spring Boot, cloud platforms (AWS, GCP, Azure), AI, and blockchain development.',
     url: 'https://usama.solutions',
     siteName: 'Muhammad Usama Saleem Portfolio',
     images: [
