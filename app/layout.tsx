@@ -7,13 +7,13 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Muhammad Usama Saleem | Full-Stack Software Engineer',
-  description: 'Full-stack software engineer specializing in Next.js, Angular, Node.js, Java Spring Boot, cloud platforms (AWS, GCP, Azure), AI, and blockchain development.',
-  keywords: 'software engineer, full-stack developer, web development, mobile development, AI/ML, cloud deployment, React, Node.js, Python, Angular, Java Spring Boot, AWS, GCP, Azure, blockchain, algorithms, data structures',
+  description: 'Muhammad Usama Saleem — Full-stack software engineer building scalable web apps, mobile apps, AI solutions, and cloud infrastructure for startups and enterprises worldwide.',
+  keywords: 'software engineer, full-stack developer, web development, mobile development, AI/ML, cloud deployment, React, Node.js, Python, Angular, Java Spring Boot, AWS, GCP, Azure, blockchain, freelance developer, hire developer',
   authors: [{ name: 'Muhammad Usama Saleem' }],
   metadataBase: new URL('https://usama.solutions'),
   openGraph: {
     title: 'Muhammad Usama Saleem | Full-Stack Software Engineer',
-    description: 'Full-stack software engineer specializing in Next.js, Angular, Node.js, Java Spring Boot, cloud platforms (AWS, GCP, Azure), AI, and blockchain development.',
+    description: 'Muhammad Usama Saleem — Full-stack software engineer building scalable web apps, mobile apps, AI solutions, and cloud infrastructure for startups and enterprises worldwide.',
     url: 'https://usama.solutions',
     siteName: 'Muhammad Usama Saleem Portfolio',
     images: [
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Muhammad Usama Saleem | Full-Stack Developer',
-    description: 'Building scalable web, mobile & blockchain apps.',
+    description: 'Full-stack engineer building scalable web apps, AI solutions, and cloud infrastructure for startups and enterprises.',
     images: ['/og-image.png'],
     creator: '@engrmusamasaleem',
   },

@@ -1,42 +1,48 @@
 import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
 
-// ✅ Always read API key from env
-const resend = new Resend(process.env.RESEND_API_KEY)
-
 export async function POST(req: Request) {
-  try {
-    // Parse body safely
-    const body = await req.json()
-    const { name, email, message } = body || {}
+  // Lazy init so the module can load without RESEND_API_KEY present
+  const resend = new Resend(process.env.RESEND_API_KEY)
 
-    // ✅ 1. Validate input (basic sanitization)
+  try {
+    const body = await req.json()
+    const { name, fullName, email, company, projectType, budget, timeline, description, message } = body || {}
+    const senderName = fullName || name
+
     if (
-      typeof name !== 'string' ||
+      typeof senderName !== 'string' ||
       typeof email !== 'string' ||
-      typeof message !== 'string' ||
-      !email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/) // simple email regex
+      !email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)
     ) {
       return NextResponse.json({ success: false, error: 'Invalid input' }, { status: 400 })
     }
 
-    // ✅ 2. Limit message length (to prevent abuse / spam)
-    if (message.length > 2000) {
-      return NextResponse.json({ success: false, error: 'Message too long' }, { status: 400 })
-    }
+    const safeStr = (v: unknown): string =>
+      typeof v === 'string' ? v.replace(/[<>&'"]/g, '').slice(0, 2000) : ''
 
-    // ✅ 3. Escape dangerous characters (basic sanitization)
-    const safeName = name.replace(/[<>&'"]/g, '')
-    const safeEmail = email.replace(/[<>&'"]/g, '')
-    const safeMessage = message.replace(/[<>&'"]/g, '')
+    const safeName = safeStr(senderName)
+    const safeEmail = safeStr(email)
+    const lines = [
+      `Name: ${safeName}`,
+      `Email: ${safeEmail}`,
+      company ? `Company: ${safeStr(company)}` : '',
+      projectType ? `Project Type: ${safeStr(projectType)}` : '',
+      budget ? `Budget: ${safeStr(budget)}` : '',
+      timeline ? `Timeline: ${safeStr(timeline)}` : '',
+      description
+        ? `\nDescription:\n${safeStr(description)}`
+        : message
+          ? `\nMessage:\n${safeStr(message)}`
+          : '',
+    ].filter(Boolean)
 
-    // ✅ 4. Send email using safe values
     await resend.emails.send({
-      from: 'onboarding@resend.dev', // must be verified sender
-      to: 'usamasaleem0148@gmail.com', // your receiving email
-      subject: `New contact form submission from ${safeName}`,
-      text: `Name: ${safeName}\nEmail: ${safeEmail}\n\nMessage:\n${safeMessage}`,
-      replyTo: safeEmail, // user’s email
+      from: 'onboarding@resend.dev',
+      to: 'muhammad@usamadev.com',
+      subject: `New project brief from ${safeName}`,
+      text: lines.join('\n'),
+      replyTo: safeEmail,
     })
 
     return NextResponse.json({ success: true })

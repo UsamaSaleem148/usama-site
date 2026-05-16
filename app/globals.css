@@ -121,6 +121,8 @@
   }
   html {
     scroll-behavior: smooth;
+    /* Reserve space below the fixed floating nav (~68 px tall + 16 px top offset) */
+    scroll-padding-top: 88px;
   }
   body {
     @apply bg-background;
