@@ -94,7 +94,7 @@ export default function Contact() {
                 Book a free 30-minute discovery call and let&apos;s discuss your project live.
               </p>
               <a
-                href='https://calendly.com/usamasaleem'
+                href='https://calendly.com/usamasaleem0148/15-min-meeting'
                 target='_blank'
                 rel='noopener noreferrer'
                 className='block w-full text-center px-4 py-3 rounded-xl border-2 border-primary text-primary font-semibold text-sm hover:bg-primary hover:text-primary-foreground transition-all duration-300'
