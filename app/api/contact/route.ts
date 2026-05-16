@@ -38,7 +38,7 @@ export async function POST(req: Request) {
     ].filter(Boolean)
 
     await resend.emails.send({
-      from: 'onboarding@resend.dev',
+      from: 'fromwebsite@usamadev.com',
       to: 'muhammad@usamadev.com',
       subject: `New project brief from ${safeName}`,
       text: lines.join('\n'),
