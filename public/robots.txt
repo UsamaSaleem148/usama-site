@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://www.usama.solutions
+Host: https://www.usamadev.com
 
 # Sitemaps
-Sitemap: https://www.usama.solutions/sitemap.xml
+Sitemap: https://www.usamadev.com/sitemap.xml

@@ -1,61 +1,117 @@
-import type { Metadata, Viewport } from 'next'
-import { Inter } from 'next/font/google'
-import './globals.css'
-import { ThemeProvider } from '@/components/ThemeProvider'
+import type { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Muhammad Usama Saleem | Full-Stack Software Engineer',
-  description: 'Muhammad Usama Saleem — Full-stack software engineer building scalable web apps, mobile apps, AI solutions, and cloud infrastructure for startups and enterprises worldwide.',
-  keywords: 'software engineer, full-stack developer, web development, mobile development, AI/ML, cloud deployment, React, Node.js, Python, Angular, Java Spring Boot, AWS, GCP, Azure, blockchain, freelance developer, hire developer',
-  authors: [{ name: 'Muhammad Usama Saleem' }],
-  metadataBase: new URL('https://usama.solutions'),
+  metadataBase: new URL("https://www.usamadev.com"),
+
+  title: {
+    default: "Custom Web Development Services | Muhammad Usama Saleem",
+    template: "%s | Muhammad Usama Saleem",
+  },
+
+  description:
+    "Custom web development, SaaS development, and business software for startups and businesses. Full-stack development using React, Next.js, Node.js, Java, and Spring Boot.",
+
+  authors: [
+    {
+      name: "Muhammad Usama Saleem",
+      url: "https://www.usamadev.com",
+    },
+  ],
+
+  creator: "Muhammad Usama Saleem",
+
+  alternates: {
+    canonical: "/",
+  },
+
   openGraph: {
-    title: 'Muhammad Usama Saleem | Full-Stack Software Engineer',
-    description: 'Muhammad Usama Saleem — Full-stack software engineer building scalable web apps, mobile apps, AI solutions, and cloud infrastructure for startups and enterprises worldwide.',
-    url: 'https://usama.solutions',
-    siteName: 'Muhammad Usama Saleem Portfolio',
+    type: "website",
+    locale: "en_US",
+    url: "https://www.usamadev.com",
+    siteName: "Muhammad Usama Saleem",
+    title: "Custom Web Development Services | Muhammad Usama Saleem",
+    description:
+      "Custom web development, SaaS development, and business software for startups and businesses.",
     images: [
       {
-        url: '/og-image.png',
+        url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: 'Muhammad Usama Saleem Portfolio Preview',
+        alt: "Muhammad Usama Saleem - Custom Web Development",
       },
     ],
-    locale: 'en_US',
-    type: 'website',
   },
+
   twitter: {
-    card: 'summary_large_image',
-    title: 'Muhammad Usama Saleem | Full-Stack Developer',
-    description: 'Full-stack engineer building scalable web apps, AI solutions, and cloud infrastructure for startups and enterprises.',
-    images: ['/og-image.png'],
-    creator: '@engrmusamasaleem',
+    card: "summary_large_image",
+    title: "Custom Web Development Services | Muhammad Usama Saleem",
+    description:
+      "Custom web development, SaaS development, and business software for startups and businesses.",
+    images: ["/og-image.png"],
+    creator: "@engrmusamasaleem",
   },
-}
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+};
 
 export const viewport: Viewport = {
-  width: 'device-width',
+  width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
-}
+};
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang='en' suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
         <script
-          type='application/ld+json'
+          type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'Website',
-              name: 'Muhammad Usama Saleem',
-              jobTitle: 'Full-Stack Software Engineer',
-              url: 'https://usama.solutions',
-              sameAs: ['https://www.linkedin.com/in/engrmusamasaleem', 'https://github.com/UsamaSaleem148', 'https://upwork.com/freelancers/usamasaleem2'],
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "WebSite",
+                  "@id": "https://www.usamadev.com/#website",
+                  url: "https://www.usamadev.com",
+                  name: "Muhammad Usama Saleem",
+                  description:
+                    "Custom web development, SaaS development, and business software for startups and businesses.",
+                  publisher: {
+                    "@id": "https://www.usamadev.com/#person",
+                  },
+                },
+                {
+                  "@type": "Person",
+                  "@id": "https://www.usamadev.com/#person",
+                  name: "Muhammad Usama Saleem",
+                  url: "https://www.usamadev.com",
+                  jobTitle: "Full-Stack Software Developer",
+                  sameAs: [
+                    "https://www.linkedin.com/in/engrmusamasaleem",
+                    "https://github.com/UsamaSaleem148",
+                    "https://upwork.com/freelancers/usamasaleem2",
+                  ],
+                },
+              ],
             }),
           }}
         />
@@ -65,5 +121,5 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
-  )
+  );
 }
