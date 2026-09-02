@@ -91,7 +91,10 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-border pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-sm text-muted-foreground">
-          <span>© 2025–2026 Muhammad Usama Saleem. All rights reserved.</span>
+          <span>
+            © {new Date().getFullYear()} Muhammad Usama Saleem. All rights
+            reserved.
+          </span>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="hover:text-foreground transition-colors duration-200 cursor-pointer"

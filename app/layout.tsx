@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   },
 
   description:
-    "Custom web development, SaaS development, and business software for startups and businesses. Full-stack development using React, Next.js, Node.js, Java, and Spring Boot.",
+    "Custom web development, SaaS, and business software for startups and businesses. React, Next.js, Node.js, Java, and Spring Boot development",
 
   authors: [
     {
